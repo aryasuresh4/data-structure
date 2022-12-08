@@ -1,7 +1,0 @@
-#include<stdio.h>
-void main()
-{
-int a1[50],a2[100],a3[100],m,n,i,j,k=0;
-printf("\n enter the size of first array:");
-scanf("%d",&m);
-printf("\n enter the
