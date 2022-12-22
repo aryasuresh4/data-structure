@@ -38,6 +38,7 @@ void insertlast()
 struct node *temp,*newnode;
 newnode=(struct node*)malloc(sizeof(struct node*));
 newnode->next=NULL;
+newnode->prev=NULL;
 temp=head;
 if(newnode==NULL)
 printf("\n no space available");
@@ -68,7 +69,12 @@ temp=temp->next;
 if(temp==NULL)
 break;
 }
-if(temp->data==key){
+if(temp==NULL)
+{printf("The %d value does not exist",key);
+return;
+}
+if(temp->data==key)
+{
 if(newnode==NULL)
 printf("\n no space available");
 else
@@ -76,9 +82,9 @@ else
 printf("Enter the element to be inserted:");
 scanf("%d",&newnode->data);
 temp->next=nextnode;
-newnode=temp->next;
+temp->next=newnode;
 temp=newnode->prev;
-nextnode=newnode->next;
+newnode->next=nextnode;
 nextnode->prev=newnode;
 
 printf("\n%d inserted after %d",newnode->data,key);
